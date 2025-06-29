@@ -2,10 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://0xilovebits.github.io/</loc>
-    <priority>1.00</priority>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://0xilovebits.github.io/404.html</loc>
     <priority>0.10</priority>
+    <lastmod>2025-06-28</lastmod>
+    <changefreq>monthly</changefreq>
   </url>
 </urlset>
