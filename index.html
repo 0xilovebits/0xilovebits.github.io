@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta Basics -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>0xilovebits | Reverse Engineer</title>
+    <link rel="canonical" href="https://0xilovebits.github.io/" />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://avatars.githubusercontent.com/u/130795498?s=32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://avatars.githubusercontent.com/u/130795498?s=16"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://avatars.githubusercontent.com/u/130795498?s=180"
+    />
+
+    <!-- SEO -->
+    <meta name="description" content="0xilovebits | Reverse Engineer" />
+    <meta
+      name="keywords"
+      content="0xilovebits, reverse engineering, flutter aot, frida, binary unpacking, malware analysis"
+    />
+    <meta name="author" content="0xilovebits" />
+    <meta
+      name="google-site-verification"
+      content="t64qefs0rjg7VpEz15n3fNr1RBezvvzyl0s89pceuoA"
+    />
+
+    <!-- Open Graph (Facebook, Discord, etc.) -->
+    <meta property="og:title" content="0xilovebits | Reverse Engineer" />
+    <meta
+      property="og:description"
+      content="Reverse Engineering | Malware Analysis"
+    />
+    <meta property="og:url" content="https://0xilovebits.github.io/" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://avatars.githubusercontent.com/u/130795498"
+    />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="0xilovebits | Reverse Engineer" />
+    <meta
+      name="twitter:description"
+      content="Reverse Engineering | Malware Analysis"
+    />
+    <meta
+      name="twitter:image"
+      content="https://avatars.githubusercontent.com/u/130795498"
+    />
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "0xilovebits",
+        "url": "https://0xilovebits.github.io/",
+        "image": "https://avatars.githubusercontent.com/u/130795498",
+        "sameAs": ["https://github.com/0xilovebits"],
+        "jobTitle": "Reverse Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Independent"
+        }
+      }
+    </script>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&display=swap");
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Fira Code", monospace;
+        font-weight: 300;
+        background: #0d0d0d;
+        color: #33ff99;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        min-height: 100vh;
+      }
+
+      .wrapper-masthead {
+        width: 100%;
+        background: #1a1a1a;
+        box-shadow: 0 0 10px #00ff88;
+      }
+
+      .container {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 0 20px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+
+      .masthead {
+        padding: 20px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .site-nav {
+        float: right;
+        margin-top: 23px;
+        animation: fadeIn 0.8s ease-out;
+        display: flex;
+        gap: 1em;
+        flex-wrap: wrap;
+      }
+
+      .nav-link {
+        color: #33ff99;
+        text-decoration: none;
+        font-weight: 400;
+        padding: 8px 12px;
+        border-radius: 4px;
+        background: #1a1a1a;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        margin-bottom: 8px;
+      }
+
+      .nav-link:hover {
+        background: #2a2a2a;
+        text-decoration: none;
+        box-shadow: 0 0 10px #00ff88;
+      }
+
+      .site-info {
+        float: left;
+      }
+
+      .site-name {
+        margin: 0;
+        font-size: 28px;
+        font-weight: 400;
+      }
+
+      .site-name a {
+        color: #33ff99;
+        text-decoration: none;
+      }
+
+      .site-description {
+        margin: 5px 0 0 0;
+        color: #ccc;
+        font-size: 16px;
+      }
+
+      .clearfix::after {
+        content: "";
+        display: table;
+        clear: both;
+      }
+      h1 {
+        font-size: 3em;
+        margin-top: 1em;
+        background: #1a1a1a;
+        padding: 10px 20px;
+        border-radius: 10px;
+        box-shadow: inset 0 0 10px #00ff88;
+        text-align: center;
+        word-wrap: break-word;
+      }
+      .tagline {
+        font-size: 1.2em;
+        color: #ccc;
+        margin-bottom: 1em;
+        text-align: center;
+      }
+      .section {
+        background: #1a1a1a;
+        padding: 1.5em;
+        border-radius: 10px;
+        box-shadow: 0 0 8px #33ff99;
+        width: 90%;
+        max-width: 720px;
+        margin: 1em 0;
+        transform-origin: center;
+        animation: fadeIn 1s ease-out;
+        box-sizing: border-box;
+      }
+      .section h2 {
+        color: #66ffcc;
+        margin-bottom: 0.5em;
+        border-bottom: 1px solid #333;
+        padding-bottom: 4px;
+      }
+      ul {
+        padding-left: 1.5em;
+      }
+      a {
+        color: #33ff99;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .footer {
+        font-size: 0.9em;
+        margin-top: 2em;
+        color: #555;
+        text-align: center;
+        padding-bottom: 1em;
+        width: 100%;
+      }
+
+      /* Mobile Responsive Styles */
+      @media screen and (max-width: 640px) {
+        .masthead {
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+        }
+
+        .site-info {
+          float: none;
+          margin-bottom: 15px;
+          order: 1;
+        }
+
+        .site-nav {
+          float: none;
+          margin-top: 15px;
+          justify-content: center;
+          order: 2;
+        }
+
+        h1 {
+          font-size: 2em;
+          padding: 10px;
+          margin-top: 0.5em;
+        }
+
+        .section {
+          width: 95%;
+          padding: 1em;
+        }
+
+        .site-name {
+          font-size: 24px;
+        }
+
+        .site-description {
+          font-size: 14px;
+        }
+      }
+
+      /* Small Mobile Devices */
+      @media screen and (max-width: 480px) {
+        .nav-link {
+          padding: 6px 8px;
+          font-size: 0.9em;
+        }
+
+        h1 {
+          font-size: 1.8em;
+        }
+
+        .tagline {
+          font-size: 1em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper-masthead">
+      <div class="container">
+        <header class="masthead clearfix">
+          <nav class="site-nav">
+            <a href="/about" class="nav-link">About</a>
+            <a href="#links" class="nav-link">Links</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+            <a href="/blog" class="nav-link">Blog</a>
+          </nav>
+
+          <div class="site-info">
+            <h1 class="site-name">
+              <a href="/">0xilovebits</a>
+            </h1>
+            <p class="site-description">
+              Reverse Engineering | Malware Analysis
+            </p>
+          </div>
+        </header>
+      </div>
+    </div>
+
+    <h1>$ whoami → 0xilovebits</h1>
+    <div class="tagline">🧠 Learn Reverse Engineering</div>
+
+    <div class="section" id="about">
+      <h2>👨‍💻 About Me</h2>
+      <p>
+        I'm a self-taught reverse engineer from Egypt who loves low-level
+        puzzles, and exploring how apps and systems work under the hood. 🕵️‍♂️
+        Always learning. Always reversing. Always sharing.
+      </p>
+    </div>
+
+    <div class="section" id="links">
+      <h2>🔗 Links</h2>
+      <ul>
+        <li>
+          <a
+            href="https://github.com/0xilovebits"
+            target="_blank"
+            rel="noopener noreferrer"
+            >GitHub</a
+          >
+        </li>
+        <li>Discord : ilovebits</li>
+      </ul>
+    </div>
+
+    <div class="section" id="projects">
+      <h2>📦 Projects</h2>
+      <ul>
+        <li>
+          <a
+            href="https://github.com/0xilovebits/x86-emulator-in-c"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <b>x86-emulators-in-c:</b> X86 Emulators Written in C for learning
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <div class="section" id="contact">
+      <h2>✉️ Contact</h2>
+      <p>DM me on Discord.</p>
+    </div>
+
+    <div class="footer">
+      <p>
+        &copy; 2025 - 0xilovebits | Built with ❤️ by a reverse engineer in
+        Egypt.
+      </p>
+    </div>
+  </body>
+</html>

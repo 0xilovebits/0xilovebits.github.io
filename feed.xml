@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.4.1">Jekyll</generator><link href="https://0xilovebits.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://0xilovebits.github.io/" rel="alternate" type="text/html" /><updated>2025-07-22T16:46:15+00:00</updated><id>https://0xilovebits.github.io/feed.xml</id><title type="html">0xilovebits</title><subtitle>Reverse Engineering | Malware Analysis</subtitle><entry><title type="html">Welcome to My Blog</title><link href="https://0xilovebits.github.io/welcome/" rel="alternate" type="text/html" title="Welcome to My Blog" /><published>2025-07-22T00:00:00+00:00</published><updated>2025-07-22T00:00:00+00:00</updated><id>https://0xilovebits.github.io/welcome</id><content type="html" xml:base="https://0xilovebits.github.io/welcome/"><![CDATA[<h1 id="welcome-hackers-and-learners">Welcome, Hackers and Learners!</h1>
+
+<p>Hello and welcome to my blog!<br />
+This space is where I’ll share my journey into <strong>Reverse Engineering, Malware Analysis, and Low-Level Programming</strong>.</p>
+
+<hr />
+
+<h2 id="about-me">About Me</h2>
+<p>$ <strong>whoami</strong> → <code class="language-plaintext highlighter-rouge">0xilovebits</code><br />
+I’m a self-taught reverse engineer from Egypt who loves <strong>low-level puzzles</strong>, exploring how systems work under the hood, and sharing everything I learn.<br />
+🧠 <em>Always learning. Always reversing. Always sharing.</em></p>
+
+<hr />
+
+<h2 id="what-to-expect">What to Expect</h2>
+<p>I’ll be posting about:</p>
+<ul>
+  <li><strong>Reverse Engineering</strong> tips and writeups.</li>
+  <li><strong>Malware Analysis</strong> case studies.</li>
+  <li><strong>Low-level coding</strong> (C, Assembly, (Zig &amp; Pascal)(Soon) ).</li>
+  <li><strong>Technical projects</strong> like emulators and tools.</li>
+</ul>
+
+<h2 id="just-as-soon-as-i-stop-reverse-engineering-my-own-life-">…just as soon as I stop reverse engineering my own life 🤯</h2>
+
+<hr />
+
+<h2 id="projects--experiments">Projects &amp; Experiments</h2>
+<ul>
+  <li><a href="https://github.com/0xilovebits/x86-emulators-in-c"><strong>x86-emulators-in-c</strong></a>: Learning CPU internals by building emulators in C.</li>
+</ul>
+
+<hr />
+
+<h2 id="links--contact">Links &amp; Contact</h2>
+<ul>
+  <li><a href="https://github.com/0xilovebits"><strong>GitHub</strong></a></li>
+  <li><strong>Discord</strong> : ilovebits</li>
+</ul>
+
+<hr />
+
+<h2 id="closing-thoughts">Closing Thoughts</h2>
+<p>This blog is my personal lab notebook. Expect <strong>writeups</strong>, <strong>deep dives</strong>, and <strong>behind-the-scenes</strong> explorations of software internals.</p>
+
+<p>Stay tuned—more content is coming soon!</p>]]></content><author><name></name></author><summary type="html"><![CDATA[Welcome, Hackers and Learners!]]></summary></entry></feed>
