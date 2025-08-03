@@ -3,61 +3,215 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="robots" content="noindex" />
-    <title>Discord | Contact Info</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&amp;display=swap" rel="stylesheet" />
+    <title>Discord | 0xilovebits</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&amp;display=swap" rel="stylesheet" />
     <style>
+      /* --- Base & Body Styles --- */
+      html {
+        /* Ensures the body can use 100% height */
+        height: 100%;
+      }
+
       body {
+        /* Flexbox setup for perfect centering */
+        display: flex;
+        align-items: center;    /* Vertical alignment */
+        justify-content: center; /* Horizontal alignment */
+        
+        /* Full-screen and basic styling */
+        height: 100%;
         margin: 0;
-        padding: 0;
         font-family: "Fira Code", monospace;
         background: #0d0d0d;
         color: #33ff99;
+        text-align: center;
+        padding: 1rem; /* Padding for smaller screens */
+        box-sizing: border-box;
+      }
+
+      /* --- Content Container --- */
+      .container {
         display: flex;
         flex-direction: column;
         align-items: center;
-        justify-content: center;
-        height: 100vh;
+        gap: 1.25rem; /* Space between elements */
+        padding: 2.5rem;
+        background: #1a1a1a;
+        border-radius: 15px;
+        box-shadow: 0 0 25px rgba(51, 255, 153, 0.15);
+        border: 1px solid #2a2a2a;
+        max-width: 500px; /* Max width on large screens */
+        width: 100%;      /* Responsive width */
+        animation: fadeIn 0.7s ease-out forwards;
       }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(15px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- Typography & Elements --- */
       h1 {
-        font-size: 2.5em;
-        margin-bottom: 0.2em;
-        background: #1a1a1a;
-        padding: 10px 20px;
-        border-radius: 10px;
-        box-shadow: inset 0 0 10px #00ff88;
+        font-size: 2em;
+        font-weight: 500;
+        margin: 0;
+        color: #66ffcc;
       }
+
       p {
-        font-size: 1.4em;
+        font-size: 1.1em;
         color: #ccc;
-        margin-bottom: 1em;
+        margin: 0;
+        max-width: 35ch; /* Limits line length for better readability */
       }
+
       .tag {
-        background: #1a1a1a;
-        padding: 8px 16px;
+        background: #0d0d0d;
+        padding: 10px 20px;
         border-radius: 8px;
         font-size: 1.3em;
-        box-shadow: 0 0 10px #00ff88;
+        font-weight: 500;
+        box-shadow: inset 0 0 8px rgba(51, 255, 153, 0.4);
         color: #33ff99;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
-      a {
-        margin-top: 20px;
+
+      .tag:hover {
+        transform: scale(1.05);
+        box-shadow: inset 0 0 8px rgba(51, 255, 153, 0.4), 0 0 15px rgba(51, 255, 153, 0.2);
+      }
+
+      .back-link {
+        margin-top: 10px;
         color: #33ff99;
         text-decoration: none;
         border: 1px solid #33ff99;
         padding: 8px 16px;
         border-radius: 8px;
-        transition: 0.3s;
+        transition: background-color 0.3s, color 0.3s;
       }
-      a:hover {
+
+      .back-link:hover {
         background-color: #33ff99;
         color: #0d0d0d;
+      }
+      
+      /* --- Copy Notification --- */
+      .notification {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translate(-50%, 100px); /* Start off-screen */
+        background-color: #33ff99;
+        color: #0d0d0d;
+        padding: 12px 22px;
+        border-radius: 8px;
+        font-weight: 500;
+        z-index: 1000;
+        visibility: hidden;
+        opacity: 0;
+        transition: transform 0.4s ease, opacity 0.4s ease, visibility 0.4s;
+      }
+
+      .notification.show {
+        transform: translate(-50%, 0);
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* --- Responsive Adjustments for Mobile --- */
+      @media (max-width: 600px) {
+        .container {
+          padding: 2rem 1.5rem;
+          gap: 1rem;
+        }
+
+        h1 {
+          font-size: 1.6em;
+        }
+
+        p {
+          font-size: 1em;
+        }
+
+        .tag {
+          font-size: 1.1em;
+          padding: 10px 18px;
+        }
       }
     </style>
   </head>
   <body>
-    <h1>💬 Discord Username</h1>
-    <p>You can contact me on Discord at:</p>
-    <div class="tag">ilovebits</div>
-    <a href="/">← Back to Home</a>
+    <!-- Main content container -->
+    <div class="container">
+        <h1>💬 Discord Contact</h1>
+        <p>You can find me on Discord. Click the tag below to copy the username.</p>
+        <div class="tag" id="discord-tag">ilovebits</div>
+        <a href="/" class="back-link">← Back to Home</a>
+    </div>
+
+    <!-- Notification element for copy feedback -->
+    <div id="notification" class="notification"></div>
+
+    <script>
+        // Shows a temporary notification at the bottom of the screen.
+        function showNotification(message) {
+            const notification = document.getElementById('notification');
+            notification.textContent = message;
+            notification.classList.add('show');
+            
+            // Hide the notification after 2 seconds
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 2000);
+        }
+
+        // Copies the text content of a given element to the clipboard.
+        function copyUsername(element) {
+            const username = element.innerText;
+
+            // Use the modern Clipboard API if available
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(username).then(() => {
+                    showNotification('Username copied!');
+                }).catch(err => {
+                    showNotification('Failed to copy.');
+                });
+            } else {
+                // Fallback for older browsers
+                try {
+                    const textArea = document.createElement("textarea");
+                    textArea.value = username;
+                    textArea.style.position = "fixed";
+                    textArea.style.opacity = "0";
+                    document.body.appendChild(textArea);
+                    textArea.focus();
+                    textArea.select();
+                    document.execCommand('copy');
+                    showNotification('Username copied!');
+                    document.body.removeChild(textArea);
+                } catch (fallbackErr) {
+                    showNotification('Failed to copy.');
+                }
+            }
+        }
+
+        // Add event listener after the document has loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            const discordTag = document.getElementById('discord-tag');
+            if (discordTag) {
+                discordTag.addEventListener('click', () => {
+                    copyUsername(discordTag);
+                });
+            }
+        });
+    </script>
   </body>
 </html>
