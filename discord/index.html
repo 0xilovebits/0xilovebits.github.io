@@ -8,24 +8,21 @@
     <style>
       /* --- Base & Body Styles --- */
       html {
-        /* Ensures the body can use 100% height */
         height: 100%;
       }
 
       body {
-        /* Flexbox setup for perfect centering */
         display: flex;
-        align-items: center;    /* Vertical alignment */
-        justify-content: center; /* Horizontal alignment */
-        
-        /* Full-screen and basic styling */
+        align-items: center;
+        justify-content: center;
         height: 100%;
         margin: 0;
         font-family: "Fira Code", monospace;
-        background: #0d0d0d;
-        color: #33ff99;
+        /* Matches the main site's background gradient */
+        background: linear-gradient(145deg, #0f0f0f, #1a1a1a);
+        color: #cccccc; /* Matches main text color */
         text-align: center;
-        padding: 1rem; /* Padding for smaller screens */
+        padding: 1rem;
         box-sizing: border-box;
       }
 
@@ -34,14 +31,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 1.25rem; /* Space between elements */
+        gap: 1.25rem;
         padding: 2.5rem;
-        background: #1a1a1a;
+        background: #1b1b1b; /* Matches post card background */
         border-radius: 15px;
-        box-shadow: 0 0 25px rgba(51, 255, 153, 0.15);
+        /* Updated shadow to match site's cyan glow */
+        box-shadow: 0 0 20px rgba(139, 233, 253, 0.2);
         border: 1px solid #2a2a2a;
-        max-width: 500px; /* Max width on large screens */
-        width: 100%;      /* Responsive width */
+        max-width: 500px;
+        width: 100%;
         animation: fadeIn 0.7s ease-out forwards;
       }
 
@@ -61,56 +59,58 @@
         font-size: 2em;
         font-weight: 500;
         margin: 0;
-        color: #66ffcc;
+        color: #8be9fd; /* Main accent color (correct) */
       }
 
       p {
         font-size: 1.1em;
-        color: #ccc;
+        color: #cccccc; /* Main text color (correct) */
         margin: 0;
-        max-width: 35ch; /* Limits line length for better readability */
+        max-width: 35ch;
       }
 
       .tag {
-        background: #0d0d0d;
+        background: #2a2a2a; /* Darker element background */
         padding: 10px 20px;
         border-radius: 8px;
         font-size: 1.3em;
         font-weight: 500;
-        box-shadow: inset 0 0 8px rgba(51, 255, 153, 0.4);
-        color: #33ff99;
+        /* Updated inset shadow to cyan */
+        box-shadow: inset 0 0 8px rgba(139, 233, 253, 0.2);
+        color: #8be9fd;
         cursor: pointer;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
 
       .tag:hover {
         transform: scale(1.05);
-        box-shadow: inset 0 0 8px rgba(51, 255, 153, 0.4), 0 0 15px rgba(51, 255, 153, 0.2);
+        /* Updated hover shadow to cyan */
+        box-shadow: inset 0 0 8px rgba(139, 233, 253, 0.2), 0 0 15px rgba(139, 233, 253, 0.3);
       }
 
       .back-link {
         margin-top: 10px;
-        color: #33ff99;
+        color: #8be9fd;
         text-decoration: none;
-        border: 1px solid #33ff99;
+        border: 1px solid #8be9fd;
         padding: 8px 16px;
         border-radius: 8px;
         transition: background-color 0.3s, color 0.3s;
       }
 
       .back-link:hover {
-        background-color: #33ff99;
-        color: #0d0d0d;
+        background-color: #8be9fd;
+        color: #121212; /* Darkest background for text on hover */
       }
-      
+
       /* --- Copy Notification --- */
       .notification {
         position: fixed;
         bottom: 20px;
         left: 50%;
-        transform: translate(-50%, 100px); /* Start off-screen */
-        background-color: #33ff99;
-        color: #0d0d0d;
+        transform: translate(-50%, 100px);
+        background-color: #8be9fd; /* Accent color for notification */
+        color: #121212; /* Dark text for readability */
         padding: 12px 22px;
         border-radius: 8px;
         font-weight: 500;
@@ -149,15 +149,13 @@
     </style>
   </head>
   <body>
-    <!-- Main content container -->
     <div class="container">
         <h1>💬 Discord Contact</h1>
-        <p>You can find me on Discord. Click the tag below to copy the username.</p>
+        <p>You can find me on Discord. Click the tag below to copy my username.</p>
         <div class="tag" id="discord-tag">ilovebits</div>
         <a href="/" class="back-link">← Back to Home</a>
     </div>
 
-    <!-- Notification element for copy feedback -->
     <div id="notification" class="notification"></div>
 
     <script>

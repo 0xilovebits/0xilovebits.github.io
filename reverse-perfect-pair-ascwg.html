@@ -62,10 +62,6 @@
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-08-01T00:00:00+00:00","datePublished":"2025-08-01T00:00:00+00:00","description":"🎉 My First Ever Writeup – and Its a First Blood! 🔥","headline":"Perfect Pair – Android Reverse Engineering Challenge","mainEntityOfPage":{"@type":"WebPage","@id":"https://0xilovebits.github.io/reverse-perfect-pair-ascwg"},"url":"https://0xilovebits.github.io/reverse-perfect-pair-ascwg"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <link
       rel="stylesheet"
       type="text/css"
@@ -84,30 +80,29 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <div class="site-info">
-            <h1 class="site-name">
-              <a href="/">0xilovebits</a>
-            </h1>
-            <p class="site-description">Reverse Engineering | Malware Analysis</p>
-          </div>
-
-          <nav class="site-nav">
-            <a href="/" class="home-link">← Back to Home</a>
-          </nav>
-
-          <div class="search-wrapper"><div class="search-container">
-  <div class="search-box">
-    <input type="text" id="search-input" placeholder="Search blog posts..." aria-label="Search blog posts" />
-    <ul id="results-container"></ul>
+    <!-- Discord-Style Navbar -->
+<div class="discord-navbar">
+  <div class="discord-navbar-container">
+    <header class="discord-navbar-header">
+      <div class="discord-navbar-info">
+        <h1 class="discord-navbar-title">
+          <a href="/">0xilovebits</a>
+        </h1>
+        <p class="discord-navbar-subtitle">
+          Reverse Engineering | Malware Analysis
+        </p>
+      </div>
+      <nav class="discord-navbar-nav">
+        <a href="/" class="discord-navbar-link">← Home</a>
+        <a href="/about" class="discord-navbar-link">About</a>
+        <a href="/discord/" class="discord-navbar-link">Contact</a>
+      </nav>
+    </header>
   </div>
 </div>
-</div>
-        </header>
-      </div>
-    </div>
+ 
+    
+    
 
     <div id="main" role="main" class="container"><article class="post">
   <header class="post-header">
@@ -296,7 +291,7 @@ Response Interceptor Method
 
 <p>Now <em>that</em> raised some eyebrows.</p>
 
-<p>Looks like the developer left behind something they really shouldnt have. Either they forgot to strip it out… or they didnt realize how revealing it might be. Either way, were not complaining 😏</p>
+<p>Looks like the developer left behind something they really shouldn’t  have. Either they forgot to strip it out… or they didnt realize how revealing it might be. Either way, were not complaining 😏</p>
 
 <p>Lets crack it open in IDA Pro and see what secrets its hiding.</p>
 
@@ -321,7 +316,7 @@ Exports From ida Pro
 
 <p><img src="/images/2025-08-01-perfect-pair/getKeyfunc.png" alt="GetKeyFunc" style="display: block; margin: 0 auto; max-width: 100%; height: auto;" /></p>
 
-<p>This one returns an key <code class="language-plaintext highlighter-rouge">0x42</code> (66 decimal) — maybe its used in an XOR or something similar.</p>
+<p>This one returns a key <code class="language-plaintext highlighter-rouge">0x42</code> (66 decimal) — maybe its used in an XOR or something similar.</p>
 
 <p>Next up, the function that really caught my eye is <code class="language-plaintext highlighter-rouge">Java_asc_wargames_perfectpair_NativeLib_processData</code>. The name suggests it’s pretty important, so let’s dive into it.</p>
 
@@ -374,7 +369,7 @@ SIGNATURE=________________________________
 <p>We can now confidently say:</p>
 <ul>
   <li><strong>Firmware encryption key = <code class="language-plaintext highlighter-rouge">66</code></strong></li>
-  <li>There a <code class="language-plaintext highlighter-rouge">SIGNATURE</code> field… and we just so happen to have another key (<code class="language-plaintext highlighter-rouge">"meow"</code>) left unused…</li>
+  <li>there is a  <code class="language-plaintext highlighter-rouge">SIGNATURE</code> field… and we just so happen to have another key (<code class="language-plaintext highlighter-rouge">"meow"</code>) left unused…</li>
 </ul>
 
 <p>Hmm… where have we seen <code class="language-plaintext highlighter-rouge">meow</code> before?</p>
@@ -421,7 +416,7 @@ DATA=SMARTLOCK_FIRMWARE
 
 </code></pre></div></div>
 
-<p>and script for upload the patched firmware</p>
+<p>and the script to  upload the patched firmware</p>
 <div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="n">requests</span>
 <span class="kn">import</span> <span class="n">os</span>
 
@@ -536,7 +531,6 @@ DATA=SMARTLOCK_FIRMWARE
 
 
 
-    <!-- Simple Jekyll Search -->
     <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
     <script>
       SimpleJekyllSearch({

@@ -59,10 +59,6 @@
 {"@context":"https://schema.org","@type":"WebPage","description":"Reverse Engineering Malware Analysis","headline":"Tags","url":"https://0xilovebits.github.io/tags/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <!--[if lt IE 9]>
-      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
-
     <link
       rel="stylesheet"
       type="text/css"
@@ -81,30 +77,37 @@
   </head>
 
   <body>
-    <div class="wrapper-masthead">
-      <div class="container">
-        <header class="masthead clearfix">
-          <div class="site-info">
-            <h1 class="site-name">
-              <a href="/">0xilovebits</a>
-            </h1>
-            <p class="site-description">Reverse Engineering | Malware Analysis</p>
-          </div>
-
-          <nav class="site-nav">
-            <a href="/" class="home-link">← Back to Home</a>
-          </nav>
-
-          <div class="search-wrapper"><div class="search-container">
+    <!-- Discord-Style Navbar -->
+<div class="discord-navbar">
+  <div class="discord-navbar-container">
+    <header class="discord-navbar-header">
+      <div class="discord-navbar-info">
+        <h1 class="discord-navbar-title">
+          <a href="/">0xilovebits</a>
+        </h1>
+        <p class="discord-navbar-subtitle">
+          Reverse Engineering | Malware Analysis
+        </p>
+      </div>
+      <nav class="discord-navbar-nav">
+        <a href="/" class="discord-navbar-link">← Home</a>
+        <a href="/about" class="discord-navbar-link">About</a>
+        <a href="/discord/" class="discord-navbar-link">Contact</a>
+      </nav>
+    </header>
+  </div>
+</div>
+ 
+    
+    
+    <div class="search-wrapper"><div class="search-container">
   <div class="search-box">
     <input type="text" id="search-input" placeholder="Search blog posts..." aria-label="Search blog posts" />
     <ul id="results-container"></ul>
   </div>
 </div>
 </div>
-        </header>
-      </div>
-    </div>
+    
 
     <div id="main" role="main" class="container"><div class="tags-page">
   <div class="tags-header">
@@ -371,7 +374,6 @@
 
 
 
-    <!-- Simple Jekyll Search -->
     <script src="https://unpkg.com/simple-jekyll-search@latest/dest/simple-jekyll-search.min.js"></script>
     <script>
       SimpleJekyllSearch({
