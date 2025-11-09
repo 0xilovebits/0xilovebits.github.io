@@ -38,7 +38,8 @@ I’ll be posting about:
 
 
 ## Projects & Experiments  
-- [**x86-emulators-in-c**](https://github.com/0xilovebits/x86-emulators-in-c): Learning CPU internals by building emulators in C.  
+- [**AuRAT-Deobfuscator**](https://github.com/0xilovebits/AuRAT-Deobfuscator): Static Deobfuscator for AuRAT Malware Family. 
+- [**6502Toolkit**](https://github.com/0xilovebits/6502Toolkit): 6502Toolkit: Disassembler, Emulator, Debugger & Assembler foundation for 6502 CPU. Portable and modular architecture for learning and extending
 
 ---
 
